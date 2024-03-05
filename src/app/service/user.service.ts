@@ -4,17 +4,21 @@ import { Observable } from 'rxjs';
 import {User} from 'app/user';
 import { map } from 'rxjs/operators';
 import {  Role, Niveau, Specialite } from 'app/user'; 
+import { environment } from 'environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-
+  private userUrl: string;
   private baseURL ="http://localhost:3000/api/v1/users/";
-  constructor(private _http: HttpClient) {}
+  
+  constructor(private _http: HttpClient) {
+    
+  }
 
   addUser(data: any): Observable<any> {
-    return this._http.post('http://localhost:3000/api/v1/users/', data);
+    return this._http.post('http://localhost:8081/api/v1/auth/register', data);
   }
 
   updateUser(id: number, data: any): Observable<any> {
@@ -50,4 +54,10 @@ export class UserService {
   deleteUserArchives(id: number): Observable<any> {
     return this._http.post(`http://localhost:8081/api/v1/user/removeUserArchives/${id}`, {});
   }
+
+
+
+  //Ghofraneeee
+  
+
 }

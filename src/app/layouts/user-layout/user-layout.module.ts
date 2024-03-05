@@ -10,7 +10,6 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
-import { GhofraneComponent } from 'app/ghofrane/ghofrane.component';
 import { NavbarComponent } from 'app/components/navbar/navbar.component';
 import { ApplicationAjoutComponent } from 'app/application/application-ajout/application-ajout.component';
 
@@ -29,7 +28,7 @@ import { ApplicationAjoutComponent } from 'app/application/application-ajout/app
     MatTooltipModule,
   ],
   declarations: [
-  GhofraneComponent
+ 
   
   ]
 })

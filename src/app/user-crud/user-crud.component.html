@@ -4,8 +4,9 @@
     <div class="card">
         <div class="card-header card-header-danger">
             <h4 class="card-title ">  Liset des utilisateurs</h4>
-            <button mat-raised-button (click)="openAddEditEmpForm()">
-    ADD 
+
+            <button class="float: right;"mat-raised-button routerLink="/admin/ajouter-user">
+    Ajouter
   </button>
   <mat-form-field>
     
@@ -13,8 +14,8 @@
   </mat-form-field>
         </div>
         <div class="card-body">
-            <div class="table-responsive">
-                <table class="table">
+            <div class="table-responsive   ">
+                <table class="table ">
                     <thead class=" text-primary">
                         <th>
                             Identifiant
@@ -60,8 +61,12 @@
                        <td>{{utilisateurs.specialite}}</td>
                        <td>
                         <!-- Boutons Update et Delete -->
-                        <button (click)="updateUser(utilisateurs)" class="btn btn-success">Update</button>
-                        <button (click)="deleteUser(utilisateurs.idUser)" class="btn btn-danger">Delete</button>
+                        <button mat-raised-button type="button" (click)="updateUser(utilisateurs)" class="btn btn-success btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">edit</i></button>
+                        <button mat-raised-button type="button" (click)="deleteUser(utilisateurs.idUser)" class="btn btn-success btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">close</i></button>
+                        <!-- class="btn btn-danger"
+                        class="btn btn-success" -->
                     </td>
                      </tr>   
                      
@@ -71,3 +76,4 @@
         </div>
     </div>
 </div>
+

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'app/service/auth.service';
+
 import { AuthenticationRequest } from 'app/user';
 import { AdminLayoutRoutes } from 'app/layouts/admin-layout/admin-layout.routing';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
+import { AuthService } from 'app/service/auth.service';
 
 @Component({
   selector: 'app-login',

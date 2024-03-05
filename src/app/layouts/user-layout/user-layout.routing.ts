@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 
-import { GhofraneComponent } from 'app/ghofrane/ghofrane.component';
+
 import { ApplicationAjoutComponent } from 'app/application/application-ajout/application-ajout.component';
 export const UserLayoutRoutes: Routes = [
 
@@ -52,14 +52,7 @@ export const UserLayoutRoutes: Routes = [
     //     }]
     // }
 
-    {
-        path: '',
-        children: [
-            {
-                path: 'ghofrane',
-                component: GhofraneComponent
-            },]},
-            { path: 'ajout-application',  component: ApplicationAjoutComponent }
+    
 
             
    // { path: 'ghofrane',      component: GhofraneComponent }
