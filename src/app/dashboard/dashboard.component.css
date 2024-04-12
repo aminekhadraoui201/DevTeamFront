@@ -1,0 +1,11 @@
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Ajoute un peu d'espace entre les cartes */
+    justify-content: space-around; /* Centre les cartes avec un espacement autour */
+}
+
+.card {
+    flex-basis: calc(33.333% - 20px); /* Ajuste cette valeur pour changer la largeur des cartes */
+    /* Le calcul ci-dessus suppose un gap de 20px et crée 3 cartes par ligne. Ajustez selon vos besoins. */
+}

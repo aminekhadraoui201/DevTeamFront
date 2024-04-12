@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'app/service/user.service';
 import * as Chartist from 'chartist';
 
 
@@ -9,8 +10,11 @@ import * as Chartist from 'chartist';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  roleStatistics: any[] = [];
+  totalUsers: number = 0;
+  constructor(private userService: UserService) { }
 
-  constructor() { }
+ 
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -68,6 +72,7 @@ export class DashboardComponent implements OnInit {
       seq2 = 0;
   };
   ngOnInit() {
+    this.loadUserRoleStatistics();
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
       const dataDailySalesChart: any = {
@@ -148,5 +153,20 @@ export class DashboardComponent implements OnInit {
       //start animation for the Emails Subscription Chart
       this.startAnimationForBarChart(websiteViewsChart);
   }
+  loadUserRoleStatistics(): void {
+    this.userService.getUserRoleStatistics().subscribe(data => {
+      this.roleStatistics = data;
+      console.log(this.roleStatistics); // Pour déboguer et voir les données reçues
+      this.totalUsers = data.reduce((sum, currentStat) => sum + currentStat.count, 0);
+      
+
+    }, error => {
+      console.error('There was an error!', error);
+    });
+  }
+ 
+
+
+
 
 }

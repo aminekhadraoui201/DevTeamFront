@@ -16,6 +16,7 @@ import { ApplicationListComponent } from './application/application-list/applica
 import { ApplicationAjoutComponent } from './application/application-ajout/application-ajout.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { UserArchivesComponent } from './user-archives/user-archives.component';
+import { BanneComponent } from './banne/banne.component';
 
 
 
@@ -50,6 +51,7 @@ import { UserArchivesComponent } from './user-archives/user-archives.component';
     ApplicationAjoutComponent,
     UserAddComponent,
     UserArchivesComponent,
+    BanneComponent,
    
    
     

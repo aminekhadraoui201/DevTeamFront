@@ -4,6 +4,7 @@ import {User} from 'app/user'
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { UserAddComponent } from 'app/user-add/user-add.component';
 import { UserService } from 'app/service/user.service';
+import { AuthService } from 'app/service/auth.service';
 @Component({
   selector: 'app-user-crud',
   templateUrl: './user-crud.component.html',
@@ -11,11 +12,15 @@ import { UserService } from 'app/service/user.service';
 })
 export class UserCrudComponent implements OnInit {
   userss : User[];
+  user: any;
   private allUsers = []; 
-  constructor(private userService : UserService ) { }
+  
+  constructor(private userService : UserService ,private authService: AuthService) { }
 
   ngOnInit(): void {
 this.getUsers();
+
+this.user = this.authService.getUserDetails();
 
   }
   private getUsers(){
@@ -29,6 +34,7 @@ this.getUsers();
     }
       );
   }
+  
 
   deleteUser(id: number): void {
     this.userService.deleteUser(id).subscribe(response => {

@@ -26,6 +26,12 @@
                 </li>
             </ul>
         </div>
+        <div *ngIf="user">
+            <p>Bienvenu</p>
+            <p> {{user.nom}}</p>
+            <p> {{user.identifiant}}</p>
+           
+          </div>
         <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <form class="navbar-form">
                 <div class="input-group no-border">
@@ -49,5 +55,42 @@
         </ul>
     </div>
 </nav>
+<!-- ----------------------------------------------- -->
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card border-danger" style="max-width: 500px;margin-bottom: 80px;">
+      <div class="card-header bg-danger text-white">Profil</div>
+      <div class="card-body">
+          <form [formGroup]="userProfileForm" (ngSubmit)="updateUserProfile()">
+            <div class="form-group">
+                <label for="nom">Nom</label>
+                <input type="text" class="form-control" id="nom" formControlName="nom" required>
+              </div>
+              <div class="form-group">
+                <label for="prenom">Prenom</label>
+                <input type="text" class="form-control" id="prenom" formControlName="prenom" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" formControlName="email" required>
+              </div>
+              <div class="form-group">
+                <label for="role">Role</label>
+                <select class="form-control" id="role" formControlName="role">
+                  <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="imageUpload">Upload Image</label>
+                <input type="file" name="file" class="form-control" id="imageUpload" accept="image/*">
+            </div>
+  
+          <button type="submit" class="btn btn-danger btn-block" [disabled]="userProfileForm.invalid">Modifier</button>
+          <a class="btn btn-danger btn-block" routerLink="/admin/afficher-offre">Annuler</a>
+        </form>
+      </div>
+    </div>
+  </div>
+  
 
 <app-footer></app-footer>   

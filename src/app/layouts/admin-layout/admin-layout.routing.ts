@@ -13,6 +13,7 @@ import { ApplicationAjoutComponent } from 'app/application/application-ajout/app
 import { UserCrudComponent } from 'app/user-crud/user-crud.component';
 import { UserArchivesComponent } from 'app/user-archives/user-archives.component';
 import { UserAddComponent } from 'app/user-add/user-add.component';
+import { BanneComponent } from 'app/banne/banne.component';
 
 export const AdminLayoutRoutes: Routes = [
   
@@ -28,6 +29,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'user-archives',  component: UserArchivesComponent },
     { path: 'ajout-application',  component: ApplicationAjoutComponent },
     { path: 'ajouter-user',  component:UserAddComponent },
+    { path: 'banne',  component:BanneComponent },
     // {
     //     path: '',
     //     children: [

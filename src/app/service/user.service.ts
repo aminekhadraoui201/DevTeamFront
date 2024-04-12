@@ -11,7 +11,7 @@ import { environment } from 'environments/environment';
 })
 export class UserService {
   private userUrl: string;
-  private baseURL ="http://localhost:3000/api/v1/users/";
+  private baseURL ="http://localhost:8081/api/v1/users/";
   
   constructor(private _http: HttpClient) {
     
@@ -22,8 +22,10 @@ export class UserService {
   }
 
   updateUser(id: number, data: any): Observable<any> {
-    return this._http.put(`http://localhost:3000/api/v1/users/${id}`, data);
+    return this._http.put(`http://localhost:8081/api/v1/user/updateUser/${id}`, data);
+    
   }
+ 
   deleteUser(id: number): Observable<any> {
     return this._http.post(`http://localhost:8081/api/v1/user/removeUser/${id}`, {});
   }
@@ -56,8 +58,23 @@ export class UserService {
   }
 
 
-
-  //Ghofraneeee
+  getUserRoleStatistics(): Observable<any[]> {
+    return this._http.get<any[]>(`http://localhost:8081/api/v1/user/roles`);
+  }
   
+  getUserBanned(): Observable<User[]> {
+    return this._http.get<User[]>('http://localhost:8081/api/v1/user/Usersbanne').pipe(
+      map(users => users.map(user => ({
+        ...user,
+        role: Role[user.role], // Transforme la chaîne en énumération Role, si applicable
+        niveau: Niveau[user.Niveau], // Transforme la chaîne en énumération Niveau, si applicable
+        specialite: Specialite[user.specialite], // Transforme la chaîne en énumération Specialite, si applicable
+        
+      })))
+    );
 
+  }
+  deleteUserBanne(id: number): Observable<any> {
+    return this._http.post(`http://localhost:8081/api/v1/user/removeUserbanne/${id}`, {});
+  }
 }

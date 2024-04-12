@@ -297,21 +297,58 @@
   </div>
 </div> -->
 <div class="row">
-<div class="col-lg-3 col-md-6 col-sm-6">
-    <div class="card card-stats">
-        <div class="card-header card-header-warning card-header-icon">
-            <div class="card-icon">
-                <i class="material-icons">content_copy</i>
+<div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let stat of roleStatistics">
+    <!-- ----------------- -->
+    <div class="card card-stats" >
+        <div class="card-header card-header-warning card-header-icon" >
+            <div class="card-icon background-red  " >
+                <i class="material-icons">group</i> <!-- Icône de groupe ou autre icône pertinente  [ngClass]="getIconClass(stat[0])" -->
             </div>
-            <p class="card-category">Used Space</p>
-            <h3 class="card-title">49/50
-                <small>GB</small>
+            <p class="card-category">{{ stat[0] }}</p> <!-- Nom du rôle -->
+            <h3 class="card-title" >{{ stat[1] }}
+                <small>users</small>
             </h3>
         </div>
         <div class="card-footer">
             <div class="stats">
-                <i class="material-icons text-danger">warning</i>
-                <a href="javascript:void(0)">Get More Space...</a>
+                <i class="material-icons text-danger">info</i>
+                Total number of users in this role.
+            </div>
+        </div>
+    </div>
+    
+   
+    
+</div>
+<div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+        <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+                <i class="material-icons">group</i> <!-- Icône de groupe ou "users" selon les icônes disponibles -->
+            </div>
+            <p class="card-category">Users</p>
+            <h3 class="card-title">{{ totalUsers }}</h3> <!-- Affiche la somme totale des utilisateurs -->
+        </div>
+        <div class="card-footer">
+            <div class="stats">
+                <i class="material-icons">date_range</i> Last 24 Hours
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+        <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+                <i class="material-icons">Stages</i>
+            </div>
+            <p class="card-category">Stages</p>
+            <h3 class="card-title">89563587</h3>
+        </div>
+        <div class="card-footer">
+            <div class="stats">
+                <i class="material-icons">date_range</i> Last 72 Hours
             </div>
         </div>
     </div>
@@ -320,10 +357,10 @@
     <div class="card card-stats">
         <div class="card-header card-header-success card-header-icon">
             <div class="card-icon">
-                <i class="material-icons">store</i>
+                <i class="material-icons">Users</i>
             </div>
-            <p class="card-category">Revenue</p>
-            <h3 class="card-title">$34,245</h3>
+            <p class="card-category">Users</p>
+            <h3 class="card-title">4,245</h3>
         </div>
         <div class="card-footer">
             <div class="stats">
@@ -414,14 +451,4 @@
         </div>
     </div>
 </div>
-
-
-          
-          
-          
-          
-      
-      
-          
-          
 </div>

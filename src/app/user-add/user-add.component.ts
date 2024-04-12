@@ -17,6 +17,7 @@ export class UserAddComponent  implements OnInit {
   roles = Object.values(Role);
   niveaux = Object.values(Niveau);
   specialites = Object.values(Specialite);
+ // Image =  Object.values(Image);
   ngOnInit() {
     this.validateForm = this.fb.group({
      // identifiant: [null, [Validators.required]],
@@ -26,6 +27,7 @@ export class UserAddComponent  implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(8)]], // Exemple de mot de passe avec une longueur minimum.
       role: [null, [Validators.required]],
+      
       //Niveau: [null, [Validators.required]],
      // specialite: [null, [Validators.required]],
       //disponibilite: [null, [Validators.required]],
@@ -40,7 +42,7 @@ export class UserAddComponent  implements OnInit {
     if (this.validateForm.valid) {
       console.log("Formulaire valide. Données du formulaire :", this.validateForm.value);
     this.userService.addUser(this.validateForm.value).subscribe(res =>{
-      console.log("Réponse du service :", res);
+      console.log("Réponse du service :", res); 
       this.router.navigate(['/admin/user']);
     });
   }else {
